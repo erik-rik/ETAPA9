@@ -7,20 +7,53 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <head>
         <meta charset="UTF-8">
         <title>Menu</title>
+
         <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     </head>
     <body>
 
         <div class="menu-container">
-            <h1>Menu</h1>
 
-            <a th:href="@{/usuarios/novo}">Cadastrar Usuário</a>
-            <a th:href="@{/livros/novo}">Cadastrar Livro</a>
-            <a th:href="@{/emprestimos/novo}">Registrar Empréstimo</a>
+            <div class="menu-header">
+                <h1>📚 Library System</h1>
+                <button class="logout-btn">Sair</button>
+            </div>
 
-            <a th:href="@{/usuarios}">Listar Usuários</a>
-            <a th:href="@{/livros}">Listar Livros</a>
-            <a th:href="@{/emprestimos}">Listar Empréstimos</a>
+            <div class="menu-grid">
+
+                <a th:href="@{/livros/novo}" class="menu-card">
+                    <i class="fas fa-plus"></i>
+                    <p>Cadastrar Livro</p>
+                </a>
+
+                <a th:href="@{/usuarios/novo}" class="menu-card">
+                    <i class="fas fa-user-plus"></i>
+                    <p>Cadastrar Usuário</p>
+                </a>
+
+                <a th:href="@{/emprestimos/novo}" class="menu-card">
+                    <i class="fas fa-handshake"></i>
+                    <p>Registrar Empréstimo</p>
+                </a>
+
+                <a th:href="@{/livros}" class="menu-card">
+                    <i class="fas fa-book"></i>
+                    <p>Listar Livros</p>
+                </a>
+
+                <a th:href="@{/usuarios}" class="menu-card">
+                    <i class="fas fa-users"></i>
+                    <p>Listar Usuários</p>
+                </a>
+
+                <a th:href="@{/emprestimos}" class="menu-card">
+                    <i class="fas fa-list"></i>
+                    <p>Listar Empréstimos</p>
+                </a>
+
+            </div>
+
         </div>
 
     </body>

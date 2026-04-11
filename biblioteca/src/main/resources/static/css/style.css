@@ -14,80 +14,74 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
-    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f5132, #198754);
+    height: 100vh;
 }
 
-.login-container, .menu-container {
-    width: 300px;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #ccc;
+.menu-container {
+    width: 900px;
+    margin: 60px auto;
+    background: #f8f9fa;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
-h1, h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.input-group {
-    margin-bottom: 10px;
-}
-
-input {
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    margin-top: 10px;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
+.menu-header {
+    background: linear-gradient(135deg, #198754, #157347);
     color: white;
-    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-header h1 {
+    font-size: 22px;
+}
+
+.logout-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: white;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
+.logout-btn:hover {
+    background: rgba(255,255,255,0.4);
 }
 
-a {
-    display: block;
-    margin: 8px 0;
-    text-decoration: none;
-    color: #007bff;
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 30px;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+.menu-card {
     background: white;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 30px;
+    border-radius: 12px;
     text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-th {
-    background-color: #007bff;
-    color: white;
+.menu-card:hover {
+    transform: translateY(-5px);
+}
+
+.menu-card i {
+    font-size: 40px;
+    color: #198754;
+    margin-bottom: 10px;
+}
+
+.menu-card p {
+    font-weight: bold;
+    color: #333;
 }
