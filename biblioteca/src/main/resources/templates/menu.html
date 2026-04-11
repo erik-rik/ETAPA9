@@ -3,13 +3,25 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menu</title>
+        <link rel="stylesheet" th:href="@{/static.css/style.css}">
     </head>
     <body>
-        <div>TODO write content</div>
+
+        <div class="menu-container">
+            <h1>Menu</h1>
+
+            <a th:href="@{/usuarios/novo}">Cadastrar Usuário</a>
+            <a th:href="@{/livros/novo}">Cadastrar Livro</a>
+            <a th:href="@{/emprestimos/novo}">Registrar Empréstimo</a>
+
+            <a th:href="@{/usuarios}">Listar Usuários</a>
+            <a th:href="@{/livros}">Listar Livros</a>
+            <a th:href="@{/emprestimos}">Listar Empréstimos</a>
+        </div>
+
     </body>
 </html>
