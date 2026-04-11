@@ -3,27 +3,20 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/static.css/style.css}">
     </head>
     <body>
 
         <div class="login-container">
-            <form class="login-form" th:action="@{/login}" method="post">
-                <h2>Library System</h2>
+            <form th:action="@{/login}" method="post" onsubmit="return validarLogin()">
+                <h2>Login</h2>
 
-                <div class="input-group">
-                    <label>Email:</label>
-                    <input type="text" name="email" required>
-                </div>
-
-                <div class="input-group">
-                    <label>Senha:</label>
-                    <input type="password" name="senha" required>
-                </div>
+                <input type="text" id="email" name="email" placeholder="Email">
+                <input type="password" id="senha" name="senha" placeholder="Senha">
 
                 <button type="submit">Entrar</button>
             </form>
@@ -31,5 +24,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <p th:if="${erro}" th:text="${erro}"></p>
         </div>
 
+        <script th:src="@{/js/script.js}"></script>
     </body>
 </html>
