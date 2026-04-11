@@ -3,13 +3,23 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Livro</title>
+        <link rel="stylesheet" th:href="@{/static.css/style.css}">
     </head>
     <body>
-        <div>TODO write content</div>
+
+        <h2>Cadastrar Livro</h2>
+
+        <form th:action="@{/livros}" method="post" onsubmit="return validarLivro()">
+            <input type="text" name="titulo" placeholder="Título">
+            <input type="text" name="autor" placeholder="Autor">
+
+            <button type="submit">Salvar</button>
+        </form>
+
+        <script th:src="@{/static.js/script.js}"></script>
     </body>
 </html>
