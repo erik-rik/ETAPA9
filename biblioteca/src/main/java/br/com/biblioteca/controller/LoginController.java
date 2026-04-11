@@ -4,18 +4,17 @@
  */
 package br.com.biblioteca.controller;
 
-import br.com.biblioteca.model.Usuario;
-import br.com.biblioteca.service.UsuarioService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  *
  * @author erikk
  */
+import br.com.biblioteca.model.Usuario;
+import br.com.biblioteca.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
 @Controller
 public class LoginController {
 
@@ -23,19 +22,24 @@ public class LoginController {
     private UsuarioService service;
 
     @GetMapping("/")
-    public String loginPage() {
+    public String login() {
         return "login";
     }
 
     @PostMapping("/login")
-    public String login(String email, String senha, Model model) {
+    public String logar(String email, String senha) {
+
         Usuario u = service.login(email, senha);
 
         if (u != null) {
-            return "menu";
-        } else {
-            model.addAttribute("erro", "Login inválido");
-            return "login";
+            return "redirect:/menu";
         }
+
+        return "login";
+    }
+
+    @GetMapping("/menu")
+    public String menu() {
+        return "menu";
     }
 }
