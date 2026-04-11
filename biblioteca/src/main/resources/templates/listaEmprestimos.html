@@ -11,19 +11,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
 
-        <h2>Empréstimos</h2>
+        <div class="container">
 
-        <table>
-            <tr><th>ID</th><th>Usuário</th><th>Livro</th><th>Data</th></tr>
+            <div class="header">
+                <h1>Empréstimos</h1>
+                <a href="/" class="btn">Menu</a>
+            </div>
 
-            <tr th:each="e : ${lista}">
-                <td th:text="${e.id}"></td>
-                <td th:text="${e.usuario.nome}"></td>
-                <td th:text="${e.livro.titulo}"></td>
-                <td th:text="${e.dataEmprestimo}"></td>
-            </tr>
+            <div class="form-container">
 
-        </table>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuário</th>
+                        <th>Livro</th>
+                        <th>Data</th>
+                    </tr>
+
+                    <tr th:each="e : ${lista}">
+                        <td th:text="${e.id}"></td>
+                        <td th:text="${e.usuario.nome}"></td>
+                        <td th:text="${e.livro.titulo}"></td>
+                        <td th:text="${e.dataEmprestimo}"></td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
 
     </body>
 </html>

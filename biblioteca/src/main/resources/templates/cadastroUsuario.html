@@ -6,21 +6,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Usuário</title>
+        <title>Cadastro</title>
         <link rel="stylesheet" th:href="@{/css/style.css}">
     </head>
     <body>
 
-        <h2>Cadastrar Usuário</h2>
+        <div class="container">
 
-        <form th:action="@{/usuarios}" method="post" onsubmit="return validarUsuario()">
-            <input type="text" name="nome" placeholder="Nome">
-            <input type="text" name="email" placeholder="Email">
-            <input type="password" name="senha" placeholder="Senha">
+            <div class="header">
+                <h1>Cadastrar Usuário</h1>
+                <a href="/" class="btn">Menu</a>
+            </div>
 
-            <button type="submit">Salvar</button>
-        </form>
+            <div class="form-container">
 
-        <script th:src="@{/js/script.js}"></script>
+                <form th:action="@{/usuarios}" method="post">
+                    <input type="text" name="nome" placeholder="Nome">
+                    <input type="text" name="email" placeholder="Email">
+                    <input type="password" name="senha" placeholder="Senha">
+
+                    <button type="submit" class="btn">Salvar</button>
+                </form>
+
+            </div>
+
+        </div>
+
     </body>
 </html>

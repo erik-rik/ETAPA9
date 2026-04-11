@@ -11,15 +11,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
 
-        <h2>Empréstimo</h2>
+        <div class="container">
+            <div class="header">
+                <h1>Empréstimo</h1>
+                <a href="/" class="btn">Menu</a>
+            </div>
 
-        <form th:action="@{/emprestimos}" method="post" onsubmit="return validarEmprestimo()">
-            <input type="number" name="usuario.id" placeholder="ID Usuário">
-            <input type="number" name="livro.id" placeholder="ID Livro">
-            <input type="date" name="dataEmprestimo">
-
-            <button type="submit">Salvar</button>
-        </form>
+            <div class="form-container">
+                <form th:action="@{/emprestimos}" method="post">
+                    <input type="number" name="usuario.id" placeholder="ID Usuário">
+                    <input type="number" name="livro.id" placeholder="ID Livro">
+                    <input type="date" name="dataEmprestimo">
+                    <button class="btn">Salvar</button>
+                </form>
+            </div>
+        </div>
 
         <script th:src="@{/js/script.js}"></script>
     </body>

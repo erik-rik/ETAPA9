@@ -3,7 +3,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : 11 de abr. de 2026, 15:04:17
+    Created on : 11 de abr. de 2026, 15:55:15
     Author     : erikk
 */
 
@@ -16,18 +16,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #0f5132, #198754);
+    height: 100vh;
 }
 
-.container {
+.menu-container {
     width: 900px;
-    margin: 50px auto;
+    margin: 60px auto;
     background: #f8f9fa;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
-.header {
+.menu-header {
     background: linear-gradient(135deg, #198754, #157347);
     color: white;
     padding: 20px;
@@ -36,33 +37,21 @@ body {
     align-items: center;
 }
 
-.header h1 {
+.menu-header h1 {
     font-size: 22px;
 }
 
-.btn {
-    padding: 10px;
+.logout-btn {
+    background: rgba(255,255,255,0.2);
     border: none;
-    border-radius: 8px;
-    background: #198754;
+    padding: 8px 15px;
+    border-radius: 20px;
     color: white;
     cursor: pointer;
 }
 
-.btn:hover {
-    background: #146c43;
-}
-
-.form-container {
-    padding: 30px;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+.logout-btn:hover {
+    background: rgba(255,255,255,0.4);
 }
 
 .menu-grid {
@@ -72,7 +61,6 @@ input {
     padding: 30px;
 }
 
-/* CARD */
 .menu-card {
     background: white;
     padding: 30px;
@@ -80,25 +68,20 @@ input {
     text-align: center;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .menu-card:hover {
     transform: translateY(-5px);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+.menu-card i {
+    font-size: 40px;
+    color: #198754;
+    margin-bottom: 10px;
 }
 
-th {
-    background: #198754;
-    color: white;
-    padding: 10px;
-}
-
-td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+.menu-card p {
+    font-weight: bold;
+    color: #333;
 }

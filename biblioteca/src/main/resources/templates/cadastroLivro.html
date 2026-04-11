@@ -11,14 +11,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
 
-        <h2>Cadastrar Livro</h2>
 
-        <form th:action="@{/livros}" method="post" onsubmit="return validarLivro()">
-            <input type="text" name="titulo" placeholder="Título">
-            <input type="text" name="autor" placeholder="Autor">
+        <div class="container">
+            <div class="header">
+                <h1>Cadastrar Livro</h1>
+                <a href="/" class="btn">Menu</a>
+            </div>
 
-            <button type="submit">Salvar</button>
-        </form>
+            <div class="form-container">
+                <form th:action="@{/livros}" method="post">
+                    <input type="text" name="titulo" placeholder="Título">
+                    <input type="text" name="autor" placeholder="Autor">
+                    <button class="btn">Salvar</button>
+                </form>
+            </div>
+        </div>
 
         <script th:src="@{/js/script.js}"></script>
     </body>
