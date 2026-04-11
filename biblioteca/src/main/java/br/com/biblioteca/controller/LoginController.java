@@ -9,8 +9,8 @@ package br.com.biblioteca.controller;
  *
  * @author erikk
  */
-import br.com.biblioteca.model.Usuario;
-import br.com.biblioteca.service.UsuarioService;
+import br.com.biblioteca.model.User;
+import br.com.biblioteca.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,17 +19,20 @@ import org.springframework.web.bind.annotation.*;
 public class LoginController {
 
     @Autowired
-    private UsuarioService service;
+    private UserService service;
 
+    // TELA DE LOGIN
     @GetMapping("/")
     public String login() {
         return "login";
     }
 
+    // PROCESSA LOGIN
     @PostMapping("/login")
-    public String logar(String email, String senha) {
+    public String logar(@RequestParam String email,
+                        @RequestParam String senha) {
 
-        Usuario u = service.login(email, senha);
+        User u = service.login(email, senha);
 
         if (u != null) {
             return "redirect:/menu";

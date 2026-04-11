@@ -50,7 +50,7 @@ public class Usuario {
         return cpf;
     }
 
-    public void setSenha(String cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 }
