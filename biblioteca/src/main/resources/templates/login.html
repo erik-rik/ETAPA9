@@ -3,13 +3,33 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
     </head>
     <body>
-        <div>TODO write content</div>
+
+        <div class="login-container">
+            <form class="login-form" th:action="@{/login}" method="post">
+                <h2>Library System</h2>
+
+                <div class="input-group">
+                    <label>Email:</label>
+                    <input type="text" name="email" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Senha:</label>
+                    <input type="password" name="senha" required>
+                </div>
+
+                <button type="submit">Entrar</button>
+            </form>
+
+            <p th:if="${erro}" th:text="${erro}"></p>
+        </div>
+
     </body>
 </html>
