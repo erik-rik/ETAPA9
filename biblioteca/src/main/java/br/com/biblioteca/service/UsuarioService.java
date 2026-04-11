@@ -12,9 +12,10 @@ package br.com.biblioteca.service;
  */
 import br.com.biblioteca.model.Usuario;
 import br.com.biblioteca.repository.UsuarioRepository;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UsuarioService {
@@ -22,15 +23,15 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository repo;
 
-    public Usuario login(String email, String senha) {
-        return repo.findByEmailAndSenha(email, senha);
-    }
-
-    public Usuario salvar(Usuario u) {
-        return repo.save(u);
+    public void salvar(Usuario u) {
+        repo.save(u);
     }
 
     public List<Usuario> listar() {
         return repo.findAll();
+    }
+
+    public void excluir(int id) {
+        repo.deleteById(id);
     }
 }
