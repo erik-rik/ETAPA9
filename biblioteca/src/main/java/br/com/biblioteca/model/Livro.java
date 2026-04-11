@@ -11,6 +11,7 @@ package br.com.biblioteca.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "livro")
 public class Livro {
 
     @Id
@@ -19,9 +20,15 @@ public class Livro {
 
     private String titulo;
     private String autor;
+
+    private int ano;
+    private String categoria;
+    private int quantidade;
+
     private boolean disponivel;
 
-    public Livro() {}
+    public Livro() {
+    }
 
     public int getId() {
         return id;
@@ -45,6 +52,30 @@ public class Livro {
 
     public void setAutor(String autor) {
         this.autor = autor;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public boolean isDisponivel() {

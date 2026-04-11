@@ -6,27 +6,53 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Livro</title>
+        <title>Cadastrar Livro</title>
         <link rel="stylesheet" th:href="@{/css/style.css}">
     </head>
     <body>
 
-
         <div class="container">
+
             <div class="header">
                 <h1>Cadastrar Livro</h1>
                 <a th:href="@{/menu}" class="btn">Menu</a>
             </div>
 
             <div class="form-container">
-                <form th:action="@{/livros}" method="post">
-                    <input type="text" name="titulo" placeholder="Título">
-                    <input type="text" name="autor" placeholder="Autor">
-                    <button class="btn">Salvar</button>
+
+                <form th:action="@{/livros}" method="post" id="bookForm">
+
+                    <input type="text" id="autor" name="autor" placeholder="Autor">
+                    <span class="error-message" id="autorError"></span>
+
+                    <input type="text" id="titulo" name="titulo" placeholder="Título">
+                    <span class="error-message" id="tituloError"></span>
+
+                    <input type="number" id="ano" name="ano" placeholder="Ano">
+                    <span class="error-message" id="anoError"></span>
+
+                    <div class="select-wrapper">
+                        <select id="categoria" name="categoria">
+                            <option value="">Categoria</option>
+                            <option>Ficção</option>
+                            <option>Romance</option>
+                            <option>Terror</option>
+                        </select>
+                    </div>
+                    <span class="error-message" id="categoriaError"></span>
+
+                    <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade">
+                    <span class="error-message" id="quantidadeError"></span>
+
+                    <button class="btn">Cadastrar</button>
+
                 </form>
+
             </div>
+
         </div>
 
         <script th:src="@{/js/script.js}"></script>
+
     </body>
 </html>

@@ -18,17 +18,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </div>
 
             <div class="form-container">
-
-                <form th:action="@{/login}" method="post">
-                    <input type="text" name="email" placeholder="Email">
-                    <input type="password" name="senha" placeholder="Senha">
+                <form th:action="@{/login}" method="post" onsubmit="return validarLogin()">
+                    <input type="text" id="email" name="email" placeholder="Email">
+                    <input type="password" id="senha" name="senha" placeholder="Senha">
 
                     <button class="btn">Entrar</button>
                 </form>
-
             </div>
 
         </div>
+
+        <script th:src="@{/js/script.js}"></script>
 
     </body>
 </html>

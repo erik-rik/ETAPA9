@@ -11,31 +11,24 @@ package br.com.biblioteca.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "usuario")
-public class Usuario {
+@Table(name = "user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String nome;
     private String email;
-    private String cpf;
-    
+    private String senha;
+
+    public User() {}
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
-    public String getNome() { 
-        return nome; 
     }
 
     public String getEmail() {
@@ -46,12 +39,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSenha(String cpf) {
-        this.cpf = cpf;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
-

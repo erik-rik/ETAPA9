@@ -102,3 +102,59 @@ td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
+
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+select:focus {
+    border-color: #198754;
+    outline: none;
+    box-shadow: 0 0 5px #66bb6a;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    appearance: none;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.select-wrapper::after {
+    content: "▼";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #198754;
+    pointer-events: none;
+}
+
+.select-wrapper select:focus {
+    border-color: #198754;
+    outline: none;
+    box-shadow: 0 0 5px #66bb6a;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
