@@ -11,6 +11,7 @@ package br.com.biblioteca.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
@@ -20,9 +21,21 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public String getNome() { 
+        return nome; 
     }
 
     public String getEmail() {
