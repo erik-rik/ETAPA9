@@ -18,26 +18,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <a th:href="@{/menu}" class="btn">Menu</a>
             </div>
 
-            <div class="form-container">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuário</th>
+                    <th>Email</th>
+                    <th>Livro</th>
+                    <th>Categoria</th>
+                    <th>Data</th>
+                </tr>
 
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Usuário</th>
-                        <th>Livro</th>
-                        <th>Data</th>
-                    </tr>
-
-                    <tr th:each="e : ${lista}">
-                        <td th:text="${e.id}"></td>
-                        <td th:text="${e.usuario.nome}"></td>
-                        <td th:text="${e.livro.titulo}"></td>
-                        <td th:text="${e.dataEmprestimo}"></td>
-                    </tr>
-
-                </table>
-
-            </div>
+                <tr th:each="e : ${lista}">
+                    <td th:text="${e.id}"></td>
+                    <td th:text="${e.usuario.nome}"></td>
+                    <td th:text="${e.usuario.email}"></td>
+                    <td th:text="${e.livro.titulo}"></td>
+                    <td th:text="${e.livro.categoria}"></td>
+                    <td th:text="${e.dataEmprestimo}"></td>
+                </tr>
+            </table>
 
         </div>
 

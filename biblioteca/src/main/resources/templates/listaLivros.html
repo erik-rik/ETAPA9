@@ -12,22 +12,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
 
         <div class="container">
+
             <div class="header">
                 <h1>Livros</h1>
                 <a th:href="@{/menu}" class="btn">Menu</a>
             </div>
 
-            <div class="form-container">
-                <table>
-                    <tr><th>ID</th><th>Título</th><th>Autor</th></tr>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Ano</th>
+                    <th>Categoria</th>
+                    <th>Quantidade</th>
+                    <th>Disponível</th>
+                </tr>
 
-                    <tr th:each="l : ${lista}">
-                        <td th:text="${l.id}"></td>
-                        <td th:text="${l.titulo}"></td>
-                        <td th:text="${l.autor}"></td>
-                    </tr>
-                </table>
-            </div>
+                <tr th:each="l : ${lista}">
+                    <td th:text="${l.id}"></td>
+                    <td th:text="${l.titulo}"></td>
+                    <td th:text="${l.autor}"></td>
+                    <td th:text="${l.ano}"></td>
+                    <td th:text="${l.categoria}"></td>
+                    <td th:text="${l.quantidade}"></td>
+                    <td th:text="${l.disponivel ? 'Sim' : 'Não'}"></td>
+                </tr>
+            </table>
+
         </div>
 
     </body>
