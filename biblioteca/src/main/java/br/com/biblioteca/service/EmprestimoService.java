@@ -12,9 +12,10 @@ package br.com.biblioteca.service;
  */
 import br.com.biblioteca.model.Emprestimo;
 import br.com.biblioteca.repository.EmprestimoRepository;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EmprestimoService {
@@ -22,11 +23,19 @@ public class EmprestimoService {
     @Autowired
     private EmprestimoRepository repo;
 
-    public Emprestimo salvar(Emprestimo e) {
-        return repo.save(e);
+    public void salvar(Emprestimo e) {
+        repo.save(e);
     }
 
     public List<Emprestimo> listar() {
         return repo.findAll();
+    }
+
+    public Emprestimo buscarPorId(int id) {
+        return repo.findById(id).orElse(null);
+    }
+
+    public void excluir(int id) {
+        repo.deleteById(id);
     }
 }

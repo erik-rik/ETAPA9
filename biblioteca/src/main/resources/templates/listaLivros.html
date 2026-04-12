@@ -15,6 +15,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             <div class="header">
                 <h1>Livros</h1>
+                <a th:href="@{/livros/novo}" class="btn">Novo Livro</a>
                 <a th:href="@{/menu}" class="btn">Menu</a>
             </div>
 
@@ -26,7 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <th>Ano</th>
                     <th>Categoria</th>
                     <th>Quantidade</th>
-                    <th>Disponível</th>
+                    <th>Ações</th>
                 </tr>
 
                 <tr th:each="l : ${lista}">
@@ -36,7 +37,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${l.ano}"></td>
                     <td th:text="${l.categoria}"></td>
                     <td th:text="${l.quantidade}"></td>
-                    <td th:text="${l.disponivel ? 'Sim' : 'Não'}"></td>
+
+                    <td>
+                        <a th:href="@{/livros/editar/{id}(id=${l.id})}" class="btn">Editar</a>
+                        <a th:href="@{/livros/excluir/{id}(id=${l.id})}" class="btn btn-danger"
+                           onclick="return confirm('Excluir?')">Excluir</a>
+                    </td>
                 </tr>
             </table>
 

@@ -17,6 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author erikk
  */
+import br.com.biblioteca.model.Livro;
+import br.com.biblioteca.service.LivroService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
 @Controller
 @RequestMapping("/livros")
 public class LivroController {
@@ -31,13 +38,29 @@ public class LivroController {
     }
 
     @GetMapping("/novo")
-    public String form() {
+    public String novo(Model model) {
+        model.addAttribute("livro", new Livro());
         return "cadastroLivro";
     }
 
-    @PostMapping
-    public String salvar(Livro l) {
-        service.salvar(l);
+    @PostMapping("/salvar")
+    public String salvar(Livro livro) {
+        service.salvar(livro);
+        return "redirect:/livros";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable int id, Model model) {
+        Livro l = service.buscarPorId(id);
+        if (l == null) return "redirect:/livros";
+
+        model.addAttribute("livro", l);
+        return "cadastroLivro";
+    }
+
+    @GetMapping("/excluir/{id}")
+    public String excluir(@PathVariable int id) {
+        service.excluir(id);
         return "redirect:/livros";
     }
 }
