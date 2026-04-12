@@ -28,7 +28,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
         </div>
 
-        <script th:src="@{/js/script.js}"></script>
+        <script>
+            function validarLogin() {
+                let email = document.getElementById("email");
+                let senha = document.getElementById("senha");
 
+                if (!email || !senha || email.value === "" || senha.value === "") {
+                    alert("Preencha todos os campos!");
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </body>
 </html>

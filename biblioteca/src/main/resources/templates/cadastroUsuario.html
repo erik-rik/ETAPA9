@@ -20,30 +20,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <i class="fas fa-user-plus"></i> 
                     <span th:text="${usuario.id == 0} ? 'Cadastrar Usuário' : 'Editar Usuário'"></span>
                 </h1>
-                <a th:href="@{/usuarios}" class="btn">Voltar</a>
+                <a th:href="@{/menu}" class="btn">Menu</a>
             </div>
 
             <div class="form-container">
 
-                <form th:action="@{/usuarios/salvar}" th:object="${usuario}" method="post" id="userForm">
+                <form th:action="@{/usuarios/salvar}" th:object="${usuario}" method="post" id="userForm" onsubmit="return validarUsuario()">
 
                     <input type="hidden" th:field="*{id}">
 
                     <div class="input-group">
                         <label>Nome *</label>
-                        <input type="text" th:field="*{nome}" placeholder="Nome completo">
+                        <input id="nome" type="text" th:field="*{nome}" placeholder="Nome completo">
                         <span class="error-message" id="nomeError"></span>
                     </div>
 
                     <div class="input-group">
                         <label>Email *</label>
-                        <input type="email" th:field="*{email}" placeholder="usuario@email.com">
+                        <input id="email" type="email" th:field="*{email}" placeholder="usuario@email.com">
                         <span class="error-message" id="emailError"></span>
                     </div>
 
                     <div class="input-group">
                         <label>CPF *</label>
-                        <input type="text" th:field="*{cpf}" placeholder="000.000.000-00">
+                        <input id="cpf" type="text" th:field="*{cpf}" placeholder="000.000.000-00">
                         <span class="error-message" id="cpfError"></span>
                     </div>
 
@@ -57,7 +57,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
         </div>
 
-        <script th:src="@{/js/script.js}"></script>
+        <script>
+            function validarUsuario() {
+                let nome = document.getElementById("nome");
+                let email = document.getElementById("email");
+                let cpf = document.getElementById("cpf");
+
+                if (!nome || !email || !cpf || nome.value === "" || email.value === "" || cpf.value === "") {
+                    alert("Preencha todos os campos!");
+                    return false;
+                }
+                return true;
+            }
+        </script>
 
     </body>
 </html>

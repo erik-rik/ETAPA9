@@ -18,15 +18,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </div>
 
             <div class="form-container">
-                <form th:action="@{/emprestimos}" method="post">
-                    <input type="number" name="usuario.id" placeholder="ID Usuário">
-                    <input type="number" name="livro.id" placeholder="ID Livro">
-                    <input type="date" name="dataEmprestimo">
+                <form th:action="@{/emprestimos}" method="post" onsubmit="return validarEmprestimo()">
+                    <input id="usuario.id" type="number" name="usuario.id" placeholder="ID Usuário">
+                    <input id="livro.id" type="number" name="livro.id" placeholder="ID Livro">
+                    <input id="dataEmprestimo" type="date" name="dataEmprestimo">
                     <button class="btn">Salvar</button>
                 </form>
             </div>
         </div>
 
-        <script th:src="@{/js/script.js}"></script>
+        <script>
+            function validarEmprestimo() {
+                let usuario = document.getElementById("usuario.id");
+                let livro = document.getElementById("livro.id");
+                let data = document.getElementById("dataEmprestimo");
+
+                if (!usuario || !livro || usuario.value === "" || livro.value === "") {
+                    alert("Preencha usuário e livro!");
+                    return false;
+                }
+                
+                if (!data || data.value === ""){
+                    alert("Preencha a data!");
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </body>
 </html>

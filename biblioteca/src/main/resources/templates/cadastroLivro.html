@@ -20,16 +20,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             <div class="form-container">
 
-                <form th:action="@{/livros}" method="post" id="bookForm">
+                <form th:action="@{/livros}" method="post" id="bookForm" onsubmit="return validarLivro()">
 
                     <input type="text" id="autor" name="autor" placeholder="Autor">
-                    <span class="error-message" id="autorError"></span>
 
                     <input type="text" id="titulo" name="titulo" placeholder="Título">
-                    <span class="error-message" id="tituloError"></span>
 
                     <input type="number" id="ano" name="ano" placeholder="Ano">
-                    <span class="error-message" id="anoError"></span>
 
                     <div class="select-wrapper">
                         <select id="categoria" name="categoria">
@@ -39,10 +36,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <option>Terror</option>
                         </select>
                     </div>
-                    <span class="error-message" id="categoriaError"></span>
 
                     <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade">
-                    <span class="error-message" id="quantidadeError"></span>
 
                     <button class="btn">Cadastrar</button>
 
@@ -52,7 +47,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
         </div>
 
-        <script th:src="@{/js/script.js}"></script>
+        <script>
+            function validarLivro() {
+
+                const autor = document.getElementById("autor");
+                const titulo = document.getElementById("titulo");
+                const ano = document.getElementById("ano");
+                const categoria = document.getElementById("categoria");
+                const quantidade = document.getElementById("quantidade");
+
+                if (!autor || autor.value.length < 2 || autor.value === "") {
+                    alert("Preencha todos os campos corretamente!");
+                    return false;
+                }
+
+                if (!titulo || titulo.value.length < 2 || titulo.value === "") {
+                    alert("Preencha todos os campos corretamente!");
+                    return false;
+                }
+
+                if (!ano || ano.value < 1800 || ano.value > 2026 || ano.value === "") {
+                    alert("Preencha todos os campos corretamente!");
+                    return false;
+                }
+
+                if (!categoria || !categoria.value) {
+                    alert("Preencha todos os campos corretamente!");
+                    return false;
+                }
+
+                if (!quantidade || quantidade.value <= 0 || quantidade.value === "") {
+                    alert("Preencha todos os campos corretamente!");
+                    return false;
+                }
+                return true;
+            }
+        </script>
 
     </body>
 </html>
