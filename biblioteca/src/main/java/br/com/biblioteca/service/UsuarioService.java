@@ -31,6 +31,10 @@ public class UsuarioService {
         return repo.findAll();
     }
 
+    public Usuario buscarPorId(int id) {
+        return repo.findById(id).orElse(null);
+    }
+
     public void excluir(int id) {
         repo.deleteById(id);
     }

@@ -15,7 +15,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             <div class="header">
                 <h1>Usuários</h1>
-                <a th:href="@{/menu}" class="btn">Menu</a>
+
+                <div>
+                    <a th:href="@{/usuarios/novo}" class="btn">Novo Usuário</a>
+                    <a th:href="@{/menu}" class="btn">Menu</a>
+                </div>
             </div>
 
             <table>
@@ -24,6 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <th>Nome</th>
                     <th>Email</th>
                     <th>CPF</th>
+                    <th>Ações</th>
                 </tr>
 
                 <tr th:each="u : ${lista}">
@@ -31,6 +36,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${u.nome}"></td>
                     <td th:text="${u.email}"></td>
                     <td th:text="${u.cpf}"></td>
+
+                    <td>
+                        <a th:href="@{/usuarios/editar/{id}(id=${u.id})}" class="btn">
+                            Editar
+                        </a>
+
+                        <a th:href="@{/usuarios/excluir/{id}(id=${u.id})}" 
+                           class="btn btn-danger"
+                           onclick="return confirm('Tem certeza que deseja excluir?')">
+                            Excluir
+                        </a>
+                    </td>
                 </tr>
             </table>
 

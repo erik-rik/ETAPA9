@@ -158,3 +158,11 @@ select:focus {
     margin-top: -10px;
     margin-bottom: 10px;
 }
+
+.btn-danger {
+    background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
