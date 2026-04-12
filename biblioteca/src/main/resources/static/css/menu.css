@@ -37,21 +37,18 @@ body {
     align-items: center;
 }
 
-.menu-header h1 {
-    font-size: 22px;
-}
 
-.logout-btn {
-    background: rgba(255,255,255,0.2);
+.btn {
+    padding: 10px;
     border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
+    border-radius: 8px;
+    background: #198754;
     color: white;
     cursor: pointer;
 }
 
-.logout-btn:hover {
-    background: rgba(255,255,255,0.4);
+.btn:hover {
+    background: #146c43;
 }
 
 .menu-grid {
@@ -85,3 +82,4 @@ body {
     font-weight: bold;
     color: #333;
 }
+
