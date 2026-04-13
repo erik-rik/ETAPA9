@@ -18,17 +18,13 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String titulo;
     private String autor;
-
+    private String titulo;
     private int ano;
     private String categoria;
     private int quantidade;
 
-    private boolean disponivel;
-
-    public Livro() {
-    }
+    // GETTERS E SETTERS
 
     public int getId() {
         return id;
@@ -38,20 +34,20 @@ public class Livro {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
     public String getAutor() {
         return autor;
     }
 
     public void setAutor(String autor) {
         this.autor = autor;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public int getAno() {
@@ -76,13 +72,5 @@ public class Livro {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public boolean isDisponivel() {
-        return disponivel;
-    }
-
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
     }
 }

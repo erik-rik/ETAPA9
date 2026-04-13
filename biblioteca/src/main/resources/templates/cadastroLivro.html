@@ -20,24 +20,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             <div class="form-container">
 
-                <form th:action="@{/livros}" method="post" id="bookForm" onsubmit="return validarLivro()">
+                <form th:action="@{/livros/salvar}" method="post" id="bookForm" onsubmit="return validarLivro()">
 
-                    <input type="text" id="autor" name="autor" placeholder="Autor">
+                    <input type="hidden" name="id" th:value="${livro.id}">
 
-                    <input type="text" id="titulo" name="titulo" placeholder="Título">
+                    <input type="text" id="autor" name="autor" placeholder="Autor" th:value="${livro.autor}">
 
-                    <input type="number" id="ano" name="ano" placeholder="Ano">
+                    <input type="text" id="titulo" name="titulo" placeholder="Título" th:value="${livro.titulo}">
+
+                    <input type="number" id="ano" name="ano" placeholder="Ano" th:value="${livro.ano}">
 
                     <div class="select-wrapper">
                         <select id="categoria" name="categoria">
                             <option value="">Categoria</option>
-                            <option>Ficção</option>
-                            <option>Romance</option>
-                            <option>Terror</option>
+                            <option th:selected="${livro.categoria == 'Ficção'}">Ficção</option>
+                            <option th:selected="${livro.categoria == 'Romance'}">Romance</option>
+                            <option th:selected="${livro.categoria == 'Terror'}">Terror</option>
                         </select>
                     </div>
 
-                    <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade">
+                    <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade" th:value="${livro.quantidade}">
 
                     <button class="btn">Cadastrar</button>
 

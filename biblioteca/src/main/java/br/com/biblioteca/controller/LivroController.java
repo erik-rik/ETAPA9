@@ -4,11 +4,7 @@
  */
 package br.com.biblioteca.controller;
 
-import br.com.biblioteca.model.Livro;
-import br.com.biblioteca.service.LivroService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,7 +48,9 @@ public class LivroController {
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable int id, Model model) {
         Livro l = service.buscarPorId(id);
-        if (l == null) return "redirect:/livros";
+        if (l == null){
+            return "redirect:/livros";
+        }
 
         model.addAttribute("livro", l);
         return "cadastroLivro";

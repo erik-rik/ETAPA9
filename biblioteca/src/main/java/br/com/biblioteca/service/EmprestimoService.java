@@ -23,12 +23,12 @@ public class EmprestimoService {
     @Autowired
     private EmprestimoRepository repo;
 
-    public void salvar(Emprestimo e) {
-        repo.save(e);
-    }
-
     public List<Emprestimo> listar() {
         return repo.findAll();
+    }
+
+    public void salvar(Emprestimo e) {
+        repo.save(e);
     }
 
     public Emprestimo buscarPorId(int id) {

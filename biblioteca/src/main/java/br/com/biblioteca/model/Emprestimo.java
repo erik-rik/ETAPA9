@@ -12,6 +12,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "emprestimo")
 public class Emprestimo {
 
     @Id
@@ -19,14 +20,15 @@ public class Emprestimo {
     private int id;
 
     @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     @ManyToOne
-    private Livro livro;
-
+    @JoinColumn(name = "livro_id")
+    private Livro livro; 
+    
+    @Column(name = "data_emprestimo")
     private LocalDate dataEmprestimo;
-
-    public Emprestimo() {}
 
     public int getId() {
         return id;
